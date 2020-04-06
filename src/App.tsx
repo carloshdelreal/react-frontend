@@ -12,7 +12,7 @@ function App() {
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: 20}}>
         <div style={{display: 'flex', alignItems: 'center'}}>
           <img alt='Darcie Logo' style={{width: 72, height: 72}} src={require('./assets/images/favicon.png')} />
-          <h3 style={{margin: 10}}>Food Bank Support</h3>
+          <h3 style={{marginLeft: 10}}>Food Bank Support</h3>
         </div>
         <div style={{display: 'flex', justifyContent: 'space-between', width: '12.5vw'}}>
           <InfoPopover title='About'>
