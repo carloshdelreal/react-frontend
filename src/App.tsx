@@ -4,6 +4,7 @@ import ButtonExample from './components/UI/ButtonExample';
 import InfoPopover from './components/UI/InfoPopover';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import GoogleMapReact from 'google-map-react';
 
 function App() {
 
@@ -42,7 +43,15 @@ function App() {
         </div>
       </div>
       <header className="App-header">
-        
+        <div style={{ height: '100vh', width: '100%' }}>
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: 'AIzaSyCFvUcopI3fCfPwQ0cnOunLWnZ08G5ps2c' }}
+            defaultCenter={{ lat: 40.413993, lng: -99.034504}}
+            defaultZoom={4}
+          >
+            
+          </GoogleMapReact>
+        </div>
       </header>
     </div>
   );
