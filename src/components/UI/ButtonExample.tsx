@@ -8,7 +8,7 @@ interface IProps {
 };
 
 const Button: React.FC<IProps> = props => {
-    let { buttonStyle, textStyle, text, onClick } = props;
+    const { buttonStyle, textStyle, text, onClick } = props;
 
     return (
         <button style={buttonStyle} onClick={onClick}>
