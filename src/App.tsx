@@ -9,14 +9,12 @@ import { GoogleApiWrapper } from "google-maps-react";
 function App() {
   return (
     <div className="App">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: 20,
-        }}
-      >
+      <div style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        margin: 20,
+      }}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
             alt="Darcie Logo"
@@ -25,13 +23,11 @@ function App() {
           />
           <h3 style={{ marginLeft: 10 }}>Food Bank Support</h3>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "12.5vw",
-          }}
-        >
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "12.5vw",
+        }}>
           <InfoPopover title="About">
             <p>
               Darcie is an automated phone line anyone can call to find human
