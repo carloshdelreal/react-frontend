@@ -1,16 +1,14 @@
 import algoliasearch from "algoliasearch/lite";
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
-import { Configure, Hits, InstantSearch, Panel } from "react-instantsearch-dom";
+import { Configure, Hits, InstantSearch } from "react-instantsearch-dom";
 import {
   GeoSearch,
   Control,
   GoogleMapsLoader,
   Marker as OriginalMarker,
 } from "react-instantsearch-dom-maps";
-
 import styled from "styled-components";
-
 import SearchBar from "./SearchBar";
 import { Location } from "./types";
 
