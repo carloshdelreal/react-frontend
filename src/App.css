@@ -35,3 +35,214 @@
     transform: rotate(360deg);
   }
 }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+.ais-GeoSearch,
+.ais-GeoSearch-map {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+  padding: 24px;
+  font-size: 14px;
+  line-height: 24px;
+  overflow-y: scroll;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  background: #f0f2f5;
+  flex-direction: column;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.ais-InstantSearch__root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+a {
+  color: #5468ff;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.search-container {
+  position: relative;
+}
+
+.left-panel {
+  position: absolute;
+  background: white;
+  padding: 20px;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  height: calc(100vh - 220px);
+  overflow: scroll;
+}
+
+#searchbox {
+  flex-grow: 0;
+  margin-bottom: 8px;
+}
+
+#searchbox,
+#stats {
+  flex-grow: 0;
+}
+
+.ais-Hits-item,
+.ais-SearchBox-input {
+  height: auto;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  list-style: none;
+}
+
+.ais-SearchBox-input:focus {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ais-SearchBox {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+  position: absolute;
+  top: 0;
+  left: inherit;
+  margin: 14px 16px;
+  cursor: pointer;
+}
+
+.ais-SearchBox-submitIcon,
+.ais-SearchBox-resetIcon {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+
+.ais-SearchBox-submitIcon {
+  fill: #5468ff;
+}
+
+.ais-SearchBox-resetIcon {
+  fill: #ed5a6a;
+}
+
+.ais-SearchBox-submit {
+  right: 0;
+}
+
+.ais-SearchBox-reset {
+  background: none;
+  padding: 0;
+  border: none;
+  right: 30px;
+}
+
+.ais-SearchBox-input {
+  width: 100%;
+  padding: 8px 16px;
+  font-weight: normal;
+  border: none;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#stats {
+  flex-grow: 0;
+  margin-bottom: 16px;
+}
+
+.ais-Stats {
+  font-size: 12px;
+  color: #697782;
+  opacity: 1;
+}
+
+#hits {
+  margin-right: 24px;
+  flex-grow: 1;
+}
+
+.ais-Hits-list {
+  padding: 0;
+}
+
+.ais-Hits-item {
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.ais-Hits-item .hit-airport-code,
+.ais-Hits-item .hit-location,
+.ais-Hits-item .hit-name {
+  margin: 0;
+}
+
+.ais-Hits-item .hit-name {
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ais-Hits-item .hit-location {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #999;
+}
+
+.ais-Hits-item:last-child {
+  margin-bottom: 0;
+}
+
+#map {
+  /* minus top header */
+  height: calc(100vh - 184px);
+}
+
+.ais-Maps {
+  height: 100%;
+  width: 100%;
+}
+
+footer {
+  flex-grow: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
