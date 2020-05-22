@@ -1,6 +1,5 @@
 import algoliasearch from "algoliasearch/lite";
 import React, { useState } from "react";
-import GoogleMapReact from "google-map-react";
 import { Configure, Hits, InstantSearch } from "react-instantsearch-dom";
 import {
   GeoSearch,
@@ -57,8 +56,8 @@ export default ({ defaultLocation }: Map) => {
               aroundRadius="all"
             />
           ) : (
-            <Configure aroundLatLngViaIP />
-          )}
+              <Configure aroundLatLngViaIP />
+            )}
 
           <SearchBar setLocation={setLocation} />
           <div className="search-container">
