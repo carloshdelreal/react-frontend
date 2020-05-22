@@ -3,7 +3,6 @@ import InfoPopover from "./components/UI/InfoPopover";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Map from "./components/UI/Map";
-
 import { GoogleApiWrapper } from "google-maps-react";
 
 function App() {
@@ -82,10 +81,5 @@ function App() {
     </div>
   );
 }
-
-// export default GoogleApiWrapper({
-//   apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY!,
-//   // @ts-ignore
-// })(App);
 
 export default App;
