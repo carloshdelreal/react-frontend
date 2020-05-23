@@ -95,18 +95,6 @@ em {
   position: relative;
 }
 
-.left-panel {
-  position: absolute;
-  background: white;
-  padding: 20px;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-
-  height: calc(100vh - 220px);
-  overflow: scroll;
-}
-
 #searchbox {
   flex-grow: 0;
   margin-bottom: 8px;
@@ -128,6 +116,10 @@ em {
 
 .ais-SearchBox-input:focus {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ais-GeoSearch-control {
+  display: none;
 }
 
 .ais-SearchBox {
@@ -230,8 +222,7 @@ em {
 }
 
 #map {
-  /* minus top header */
-  height: calc(100vh - 184px);
+  height: 100vh;
 }
 
 .ais-Maps {

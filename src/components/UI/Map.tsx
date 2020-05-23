@@ -8,13 +8,37 @@ import {
   Marker as OriginalMarker,
 } from "react-instantsearch-dom-maps";
 import styled from "styled-components";
+
 import SearchBar from "./SearchBar";
 import { Location } from "./types";
+import Menu from "./Menu";
 
 const Marker = styled(OriginalMarker)`
   height: 100px;
   width: 100px;
   background: black;
+`;
+
+const ResultsList = styled("div")`
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 500;
+  width: 340px;
+
+  background: white;
+  padding: 20px;
+
+  height: calc(100vh - 120px);
+  overflow: scroll;
+
+  @media (max-width: 980px) {
+    top: 80px;
+  }
+
+  @media (max-width: 400px) {
+    top: 80px;
+  }
 `;
 
 const searchClient = algoliasearch(
@@ -56,14 +80,31 @@ export default ({ defaultLocation }: Map) => {
               aroundRadius="all"
             />
           ) : (
-              <Configure aroundLatLngViaIP />
-            )}
+            <Configure aroundLatLngViaIP />
+          )}
 
-          <SearchBar setLocation={setLocation} />
           <div className="search-container">
+            <ResultsList className="left-panel">
+              <img
+                alt="Project Ending Hunger Logo"
+                style={{ width: 160 }}
+                src={require("../../assets/images/ProjectEndingHunger.png")}
+              />
+
+              <Hits hitComponent={HitComponent} />
+            </ResultsList>
+
+            <SearchBar setLocation={setLocation} />
+
             <div className="right-panel">
               <div id="map">
-                <GeoSearch google={google}>
+                <GeoSearch
+                  google={google}
+                  zoomControlOptions={{
+                    position: google.maps.ControlPosition.RIGHT_TOP,
+                  }}
+                  streetViewControl={true}
+                >
                   {({ hits }) => (
                     <div>
                       <Control />
@@ -74,9 +115,6 @@ export default ({ defaultLocation }: Map) => {
                   )}
                 </GeoSearch>
               </div>
-            </div>
-            <div className="left-panel">
-              <Hits hitComponent={HitComponent} />
             </div>
           </div>
         </InstantSearch>
