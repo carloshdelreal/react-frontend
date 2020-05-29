@@ -11,12 +11,29 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { SetLocation } from "./types";
+import Menu from "./Menu";
+
+const TopBarContainer = styled("div")`
+  display: flex;
+
+  position: absolute;
+  /* including Results width */
+  left: 380px;
+  right: 80px;
+  top: 20px;
+  z-index: 500;
+
+  @media (max-width: 980px) {
+    left: 20px;
+  }
+`;
 
 const Suggestions = styled("div")`
   position: absolute;
   border: 1px solid gray;
   z-index: 1000;
   background: white;
+  width: 100%;
 `;
 
 const Suggestion = styled("div")`
@@ -28,11 +45,14 @@ const Suggestion = styled("div")`
 const SearchBarContainer = styled("div")`
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  z-index: 1000;
+
+  flex: 1;
 `;
 
 const SearchBarContainerInner = styled("div")`
-  width: 800px;
+  width: 100%;
+  position: relative;
 `;
 
 type SearchBarProps = {
@@ -49,41 +69,44 @@ export default ({ setLocation }: SearchBarProps) => {
   };
 
   return (
-    <PlacesAutocomplete
-      value={locationSearch}
-      onChange={setLocationSearch}
-      onSelect={handleSelect}
-    >
-      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <SearchBarContainer>
-          <SearchBarContainerInner>
-            <form>
-              <InputGroup>
-                <FormControl
-                  id="location"
-                  placeholder="Enter a Zip Code, Neighborhood and City, or Full Address"
-                  {...getInputProps()}
-                />
-                <InputGroup.Append>
-                  <Button variant="info">Search</Button>
-                </InputGroup.Append>
-              </InputGroup>
+    <TopBarContainer>
+      <PlacesAutocomplete
+        value={locationSearch}
+        onChange={setLocationSearch}
+        onSelect={handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <SearchBarContainer>
+            <SearchBarContainerInner>
+              <form>
+                <InputGroup>
+                  <FormControl
+                    id="location"
+                    placeholder="Enter a Zip Code, Neighborhood and City, or Full Address"
+                    {...getInputProps()}
+                  />
+                  <InputGroup.Append>
+                    <Button variant="info">Search</Button>
+                  </InputGroup.Append>
+                </InputGroup>
 
-              <Suggestions>
-                {!loading &&
-                  suggestions.map((suggestion) => (
-                    <Suggestion
-                      {...getSuggestionItemProps(suggestion)}
-                      key={suggestion.description}
-                    >
-                      {suggestion.description}
-                    </Suggestion>
-                  ))}
-              </Suggestions>
-            </form>
-          </SearchBarContainerInner>
-        </SearchBarContainer>
-      )}
-    </PlacesAutocomplete>
+                <Suggestions>
+                  {!loading &&
+                    suggestions.map((suggestion) => (
+                      <Suggestion
+                        {...getSuggestionItemProps(suggestion)}
+                        key={suggestion.description}
+                      >
+                        {suggestion.description}
+                      </Suggestion>
+                    ))}
+                </Suggestions>
+              </form>
+            </SearchBarContainerInner>
+          </SearchBarContainer>
+        )}
+      </PlacesAutocomplete>
+      <Menu />
+    </TopBarContainer>
   );
 };
